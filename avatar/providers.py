@@ -62,7 +62,7 @@ class GravatarAvatarProvider(object):
             params['d'] = settings.AVATAR_GRAVATAR_DEFAULT
         if settings.AVATAR_GRAVATAR_FORCEDEFAULT:
             params['f'] = 'y'
-        path = "%s/?%s" % (hashlib.md5(force_bytes(getattr(user,
+        path = "%s?%s" % (hashlib.md5(force_bytes(getattr(user,
             settings.AVATAR_GRAVATAR_FIELD))).hexdigest(), urlencode(params))
 
         return urljoin(settings.AVATAR_GRAVATAR_BASE_URL, path)
